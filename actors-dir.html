@@ -3,42 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personalized Book Recommendations</title>
-    <!-- Tailwind CSS CDN -->
+    <title>Cinema Legends | Book Collection</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Outfit for display, Inter for sans-serif body text -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Apply custom fonts using @layer base for Tailwind's processing */
         @layer base {
-            html {
-                font-family: 'Inter', sans-serif;
-            }
-            h1, h2, h3, h4, h5, h6 {
-                font-family: 'Outfit', sans-serif;
-            }
+            html { font-family: 'Inter', sans-serif; }
+            h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
         }
-        /* Custom Scrollbar for a more premium feel */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f5f9; /* light blue-gray */
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1; /* slate-300 */
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8; /* slate-400 */
-        }
+        /* Стили скроллбара */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
     </style>
     <script>
-        // Extend Tailwind CSS configuration for custom fonts and colors
         tailwind.config = {
             theme: {
                 extend: {
@@ -47,116 +28,145 @@
                         display: ['Outfit', 'sans-serif'],
                     },
                     colors: {
-                        'primary-bg': '#fcfcfc', // Very light, almost white background
-                        'text-dark': '#1e293b',  // Darker slate for headings
-                        'text-medium': '#334155', // Medium slate for body text
-                        'accent-button': '#ef4444', // Vibrant red for buttons
-                        'accent-button-hover': '#dc2626', // Darker red for button hover
-                        'card-border': '#e2e8f0', // Light border for cards
+                        'primary-bg': '#fafafa',
+                        'text-dark': '#111827',
+                        'text-medium': '#4b5563',
+                        'accent-dark': '#1e293b', 
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="bg-primary-bg text-text-medium antialiased min-h-screen flex flex-col justify-between">
-    <div class="container mx-auto px-4 py-8 md:py-12 flex-grow">
-        <header class="text-center mb-10 md:mb-16">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-extrabold text-text-dark leading-tight tracking-tight relative pb-4">
-                Your Personalized Book Recommendations
-                <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-accent-button rounded-full"></span>
+<body class="bg-primary-bg text-text-medium antialiased min-h-screen flex flex-col">
+
+    <div class="container mx-auto px-4 py-12 max-w-6xl">
+        
+        <header class="text-center mb-16">
+            <span class="text-sm font-semibold tracking-widest text-gray-500 uppercase mb-2 block">Culture Buffs Library</span>
+            <h1 class="text-4xl md:text-6xl font-display font-extrabold text-text-dark leading-tight mb-6">
+                Cinema Legends
             </h1>
-            <p class="mt-4 text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-2">
-                Carefully curated selections just for you, blending insightful biographies with cinematic masterpieces that resonate with your interests.
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                A curated collection of essential biographies and memoirs exploring the lives of the 20th century's most iconic screen figures.
             </p>
         </header>
 
-        <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-            <!-- Book Card 1 -->
-            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out p-6 md:p-8 border border-card-border flex flex-col">
-                <h3 class="text-2xl font-display font-semibold text-text-dark mb-3 leading-snug">
-                    Jack: A Life of Jack Nicholson by Patrick McGilligan
-                </h3>
-                <p class="text-gray-700 leading-relaxed mb-4 flex-grow">
-                    A comprehensive biography chronicling the life and career of legendary actor Jack Nicholson.
-                </p>
-                <p class="text-sm text-gray-500 italic mb-6">
-                    <span class="font-medium text-text-dark">Recommendation Insight:</span> This biography is recommended because you expressed an interest in personalities such as Jack Nicholson.
-                </p>
-                <a href="https://www.amazon.com/s?k=Jack:+A+Life+of+Jack+Nicholson+by+Patrick+McGilligan" target="_blank" rel="noopener noreferrer"
-                   class="inline-flex justify-center items-center px-6 py-3 rounded-lg bg-accent-button text-white font-semibold text-lg hover:bg-accent-button-hover transition-colors duration-200 ease-in-out self-start shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
-                    Purchase on Amazon
-                </a>
+        <div class="mb-16">
+            <div class="flex items-center mb-8">
+                <h2 class="text-3xl font-display font-bold text-text-dark mr-4">The Actors</h2>
+                <div class="h-px bg-gray-300 flex-grow"></div>
             </div>
 
-            <!-- Book Card 2 -->
-            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out p-6 md:p-8 border border-card-border flex flex-col">
-                <h3 class="text-2xl font-display font-semibold text-text-dark mb-3 leading-snug">
-                    Songs My Mother Taught Me by Marlon Brando
-                </h3>
-                <p class="text-gray-700 leading-relaxed mb-4 flex-grow">
-                    Marlon Brando's candid autobiography reflecting on his tumultuous life, career, and personal philosophies.
-                </p>
-                <p class="text-sm text-gray-500 italic mb-6">
-                    <span class="font-medium text-text-dark">Recommendation Insight:</span> This autobiography is recommended as you enjoyed Al Pacino's autobiography and are interested in the lives of major film personalities.
-                </p>
-                <a href="https://www.amazon.com/s?k=Songs+My+Mother+Taught+Me+by+Marlon+Brando" target="_blank" rel="noopener noreferrer"
-                   class="inline-flex justify-center items-center px-6 py-3 rounded-lg bg-accent-button text-white font-semibold text-lg hover:bg-accent-button-hover transition-colors duration-200 ease-in-out self-start shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
-                    Purchase on Amazon
-                </a>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-200 flex flex-col md:flex-row">
+                    <div class="w-full md:w-1/3 h-64 md:h-auto bg-gray-200 relative shrink-0">
+                        <img src="https://placehold.co/400x600/e2e8f0/64748b?text=Jack's+Life" alt="Jack's Life Cover" class="w-full h-full object-cover absolute inset-0">
+                    </div>
+                    <div class="p-6 md:p-8 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-display font-bold text-text-dark mb-1">Jack's Life</h3>
+                        <p class="text-sm text-gray-500 mb-4">by Patrick McGilligan</p>
+                        <p class="text-gray-700 leading-relaxed mb-6 text-sm flex-grow">
+                            This creates a portrait of a man who is not only a legendary actor but also a cultural icon. McGilligan digs deep into Nicholson's private life, his complex relationships, and the "New Hollywood" era he helped define.
+                        </p>
+                        <a href="https://oceanofpdf.com/authors/patrick-mcgilligan/pdf-epub-jacks-life-a-biography-of-jack-nicholson-download/" target="_blank" 
+                           class="inline-block text-center w-full bg-accent-dark text-white font-medium py-3 rounded hover:bg-black transition-colors">
+                            Download / Read
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-200 flex flex-col md:flex-row">
+                    <div class="w-full md:w-1/3 h-64 md:h-auto bg-gray-200 relative shrink-0">
+                        <img src="https://placehold.co/400x600/e2e8f0/64748b?text=Brando" alt="Songs My Mother Taught Me Cover" class="w-full h-full object-cover absolute inset-0">
+                    </div>
+                    <div class="p-6 md:p-8 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-display font-bold text-text-dark mb-1">Songs My Mother Taught Me</h3>
+                        <p class="text-sm text-gray-500 mb-4">by Marlon Brando</p>
+                        <p class="text-gray-700 leading-relaxed mb-6 text-sm flex-grow">
+                            Brando's candid autobiography. He reflects on his tumultuous life, his acting technique that changed cinema forever, and his personal philosophies. A raw look into the mind of a genius.
+                        </p>
+                        <a href="https://oceanofpdf.com/authors/marlon-brando/pdf-epub-songs-my-mother-taught-me-download/" target="_blank" 
+                           class="inline-block text-center w-full bg-accent-dark text-white font-medium py-3 rounded hover:bg-black transition-colors">
+                            Download / Read
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-200 flex flex-col md:flex-row md:col-span-2 lg:col-span-1">
+                    <div class="w-full md:w-1/3 h-64 md:h-auto bg-gray-200 relative shrink-0">
+                        <img src="https://placehold.co/400x600/e2e8f0/64748b?text=De+Niro" alt="De Niro: A Life Cover" class="w-full h-full object-cover absolute inset-0">
+                    </div>
+                    <div class="p-6 md:p-8 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-display font-bold text-text-dark mb-1">De Niro: A Life</h3>
+                        <p class="text-sm text-gray-500 mb-4">by Shawn Levy</p>
+                        <p class="text-gray-700 leading-relaxed mb-6 text-sm flex-grow">
+                            The first comprehensive biography of the intense and private actor. Levy explores De Niro's preparation methods, his background in Little Italy, and his rise to becoming one of the greatest actors of his generation.
+                        </p>
+                        <a href="https://oceanofpdf.com/authors/shawn-levy/pdf-epub-de-niro-a-life-download/" target="_blank" 
+                           class="inline-block text-center w-full bg-accent-dark text-white font-medium py-3 rounded hover:bg-black transition-colors">
+                            Download / Read
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="mb-16">
+            <div class="flex items-center mb-8">
+                <h2 class="text-3xl font-display font-bold text-text-dark mr-4">The Directors</h2>
+                <div class="h-px bg-gray-300 flex-grow"></div>
             </div>
 
-            <!-- Book Card 3 -->
-            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out p-6 md:p-8 border border-card-border flex flex-col">
-                <h3 class="text-2xl font-display font-semibold text-text-dark mb-3 leading-snug">
-                    Stanley Kubrick: A Biography by Vincent LoBrutto
-                </h3>
-                <p class="text-gray-700 leading-relaxed mb-4 flex-grow">
-                    An in-depth biography exploring the meticulous filmmaking process and personal life of visionary director Stanley Kubrick.
-                </p>
-                <p class="text-sm text-gray-500 italic mb-6">
-                    <span class="font-medium text-text-dark">Recommendation Insight:</span> This biography is recommended because you explicitly mentioned an interest in personalities such as Stanley Kubrick.
-                </p>
-                <a href="https://www.amazon.com/s?k=Stanley+Kubrick:+A+Biography+by+Vincent+LoBrutto" target="_blank" rel="noopener noreferrer"
-                   class="inline-flex justify-center items-center px-6 py-3 rounded-lg bg-accent-button text-white font-semibold text-lg hover:bg-accent-button-hover transition-colors duration-200 ease-in-out self-start shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
-                    Purchase on Amazon
-                </a>
-            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-200 flex flex-col md:flex-row">
+                    <div class="w-full md:w-1/3 h-64 md:h-auto bg-gray-200 relative shrink-0">
+                        <img src="https://placehold.co/400x600/e2e8f0/64748b?text=Kubrick" alt="Kubrick Biography Cover" class="w-full h-full object-cover absolute inset-0">
+                    </div>
+                    <div class="p-6 md:p-8 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-display font-bold text-text-dark mb-1">Stanley Kubrick: A Biography</h3>
+                        <p class="text-sm text-gray-500 mb-4">by Vincent LoBrutto</p>
+                        <p class="text-gray-700 leading-relaxed mb-6 text-sm flex-grow">
+                            An in-depth exploration of the perfectionist director. LoBrutto details Kubrick's obsessive filmmaking process, his photography roots, and how he crafted masterpieces like 2001: A Space Odyssey.
+                        </p>
+                        <a href="https://oceanofpdf.com/authors/vincent-lobrutto/pdf-stanley-kubrick-a-biography-download/" target="_blank" 
+                           class="inline-block text-center w-full bg-accent-dark text-white font-medium py-3 rounded hover:bg-black transition-colors">
+                            Download / Read
+                        </a>
+                    </div>
+                </div>
 
-            <!-- Book Card 4 -->
-            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out p-6 md:p-8 border border-card-border flex flex-col">
-                <h3 class="text-2xl font-display font-semibold text-text-dark mb-3 leading-snug">
-                    De Niro: A Life by Shawn Levy
-                </h3>
-                <p class="text-gray-700 leading-relaxed mb-4 flex-grow">
-                    A detailed biographical account of Robert De Niro's journey from his early life to his iconic acting career.
-                </p>
-                <p class="text-sm text-gray-500 italic mb-6">
-                    <span class="font-medium text-text-dark">Recommendation Insight:</span> This biography is recommended given your enjoyment of Al Pacino's autobiography and general interest in legendary film personalities.
-                </p>
-                <a href="https://www.amazon.com/s?k=De+Niro:+A+Life+by+Shawn+Levy" target="_blank" rel="noopener noreferrer"
-                   class="inline-flex justify-center items-center px-6 py-3 rounded-lg bg-accent-button text-white font-semibold text-lg hover:bg-accent-button-hover transition-colors duration-200 ease-in-out self-start shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
-                    Purchase on Amazon
-                </a>
-            </div>
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-200 flex flex-col md:flex-row">
+                    <div class="w-full md:w-1/3 h-64 md:h-auto bg-gray-200 relative shrink-0">
+                        <img src="https://placehold.co/400x600/e2e8f0/64748b?text=Scorsese" alt="Scorsese Journey Cover" class="w-full h-full object-cover absolute inset-0">
+                    </div>
+                    <div class="p-6 md:p-8 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-display font-bold text-text-dark mb-1">Martin Scorsese: A Journey</h3>
+                        <p class="text-sm text-gray-500 mb-4">by Mary Pat Kelly</p>
+                        <p class="text-gray-700 leading-relaxed mb-6 text-sm flex-grow">
+                            A compelling look at the life of America's greatest living director. This book covers his struggle between religious vocation and cinema, his collaborations with De Niro, and his cinematic style.
+                        </p>
+                        <a href="https://oceanofpdf.com/authors/mary-pat-kelly/pdf-epub-martin-scorsese-a-journey-download-44737064714/" target="_blank" 
+                           class="inline-block text-center w-full bg-accent-dark text-white font-medium py-3 rounded hover:bg-black transition-colors">
+                            Download / Read
+                        </a>
+                    </div>
+                </div>
 
-            <!-- Book Card 5 -->
-            <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out p-6 md:p-8 border border-card-border flex flex-col">
-                <h3 class="text-2xl font-display font-semibold text-text-dark mb-3 leading-snug">
-                    Scorsese on Scorsese by Martin Scorsese and Michael Henry Wilson
-                </h3>
-                <p class="text-gray-700 leading-relaxed mb-4 flex-grow">
-                    Martin Scorsese discusses his films, influences, and directing philosophy in this insightful interview-based book.
-                </p>
-                <p class="text-sm text-gray-500 italic mb-6">
-                    <span class="font-medium text-text-dark">Recommendation Insight:</span> This book is recommended due to your interest in personalities like Stanley Kubrick (a director) and legendary figures associated with iconic actors like Al Pacino.
-                </p>
-                <a href="https://www.amazon.com/s?k=Scorsese+on+Scorsese+by+Martin+Scorsese+and+Michael+Henry+Wilson" target="_blank" rel="noopener noreferrer"
-                   class="inline-flex justify-center items-center px-6 py-3 rounded-lg bg-accent-button text-white font-semibold text-lg hover:bg-accent-button-hover transition-colors duration-200 ease-in-out self-start shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
-                    Purchase on Amazon
-                </a>
             </div>
-        </main>
+        </div>
+
+        <footer class="text-center mt-12 pt-8 border-t border-gray-200">
+            <p class="mb-4 text-gray-500">Culture Buffs Organization</p>
+            <a href="https://culturebuffs.github.io/playlists/" class="inline-flex items-center text-text-dark font-medium hover:text-gray-600 transition-colors">
+                <span class="mr-2">←</span> Go to Music Collection
+            </a>
+        </footer>
+
     </div>
+
 </body>
 </html>
