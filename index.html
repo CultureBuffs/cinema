@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Culture Buffs | Library</title>
+    <title>Culture Buffs | Cinema Library</title>
     <style>
         /* --- STYLES (CSS) --- */
         :root {
             --bg-color: #f4f4f4; 
             --text-color: #1a1a1a; 
             --accent-color: #333;
-            /* Sans-serif font for Modernist/Clean look */
             --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
         }
 
@@ -31,7 +30,7 @@
         }
 
         header {
-            margin-bottom: 60px;
+            margin-bottom: 50px;
             border-bottom: 2px solid var(--text-color);
             padding-bottom: 20px;
         }
@@ -54,6 +53,18 @@
             font-weight: 600;
         }
 
+        /* Section Headers */
+        h2.section-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin: 40px 0 15px 0;
+            opacity: 0.5;
+            font-weight: 700;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+
         /* Collection List Styles */
         .collection-list {
             list-style: none;
@@ -63,15 +74,16 @@
 
         .collection-item {
             border-bottom: 1px solid #e0e0e0;
-            padding: 20px 0;
+            padding: 18px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: opacity 0.2s ease;
+            transition: opacity 0.2s ease, transform 0.2s ease;
         }
 
         .collection-item:hover {
-            opacity: 0.6;
+            opacity: 0.7;
+            transform: translateX(5px);
         }
 
         .collection-link {
@@ -86,7 +98,7 @@
         }
 
         .status {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             padding: 4px 10px;
             border-radius: 4px;
@@ -98,23 +110,22 @@
             background-color: var(--text-color);
             color: var(--bg-color);
         }
+        
+        .status.archive {
+            border: 1px solid var(--text-color);
+            color: var(--text-color);
+        }
 
         .status.soon {
             background-color: #e0e0e0;
             color: #888;
         }
 
-        /* Footer with cross-link */
+        /* Footer */
         footer {
-            margin-top: 100px;
+            margin-top: 80px;
             text-align: center;
             opacity: 0.8;
-        }
-
-        .cross-link-text {
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-            display: block;
         }
 
         .cross-link-btn {
@@ -141,52 +152,44 @@
     <div class="container">
         <header>
             <span class="subtitle">Culture Buffs Organization</span>
-            <h1>Library & Reading Room</h1>
+            <h1>Cinema Library</h1>
         </header>
 
+        <h2 class="section-title">Video Essays & Articles</h2>
         <ul class="collection-list">
-            
             <li class="collection-item">
                 <a href="new-hollywood.html" class="collection-link">
                     <span>01. Cinema Legends: New Hollywood</span>
-                    <span class="status active">Open</span>
+                    <span class="status active">Read</span>
                 </a>
             </li>
-
             <li class="collection-item">
                 <div class="collection-link" style="cursor: default;">
-                    <span style="opacity: 0.4;">02. Architecture & Design</span>
+                    <span style="opacity: 0.4;">02. Architecture in Film</span>
                     <span class="status soon">Soon</span>
                 </div>
             </li>
+        </ul>
 
+        <h2 class="section-title">Visual Deconstruction</h2>
+        <ul class="collection-list">
             <li class="collection-item">
+                <a href="panic-archive.html" class="collection-link">
+                    <span>The Panic in Needle Park (1971)</span>
+                    <span class="status archive">Archive</span>
+                </a>
+            </li>
+             <li class="collection-item">
                 <div class="collection-link" style="cursor: default;">
-                    <span style="opacity: 0.4;">03. Coming Soon...</span>
+                    <span style="opacity: 0.4;">Taxi Driver (1976)</span>
                     <span class="status soon">Soon</span>
                 </div>
             </li>
-
-            <li class="collection-item">
-                <div class="collection-link" style="cursor: default;">
-                    <span style="opacity: 0.4;">04. Coming Soon...</span>
-                    <span class="status soon">Soon</span>
-                </div>
-            </li>
-
-            <li class="collection-item">
-                <div class="collection-link" style="cursor: default;">
-                    <span style="opacity: 0.4;">05. Coming Soon...</span>
-                    <span class="status soon">Soon</span>
-                </div>
-            </li>
-
         </ul>
 
         <footer>
-            <span class="cross-link-text">Looking for Music Playlists?</span>
-            <a href="https://culturebuffs.github.io/playlists/" class="cross-link-btn">
-                Go to Music →
+            <a href="https://culturebuffs.github.io/" class="cross-link-btn">
+                ← Back to Home
             </a>
         </footer>
     </div>
