@@ -3,141 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Needle Park: Visual Repository</title>
-   <style>
-        /* Основные настройки страницы */
-        body { 
-            background: #050505; 
-            color: #666; 
-            font-family: 'Segoe UI', sans-serif; 
-            margin: 0; 
-            padding: 50px; 
-            /* ГЛАВНОЕ ИСПРАВЛЕНИЕ: */
-            display: block !important; 
-            width: auto;
-            height: auto;
-        }
-
-        /* Шапка */
-        .header { 
-            border-bottom: 1px solid #1a1a1a; 
-            margin-bottom: 50px; 
-            padding-bottom: 20px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: baseline; 
-            width: 100%; /* Гарантируем ширину */
-        }
-
-        h1 { 
-            color: #eee; 
-            font-weight: 300; 
-            letter-spacing: 3px; 
-            text-transform: uppercase; 
-            font-size: 1.2em; 
-            margin: 0; 
-        }
-
-        /* Сетка кадров */
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
-            gap: 25px; 
-            width: 100%;
-        }
-        
-        /* Карточка кадра */
-        .item { 
-            background: #0c0c0c; 
-            border: 1px solid #111; 
-            padding: 12px; 
-            position: relative; 
-            transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
-        }
+    <title>Panic in Needle Park: Visual Repository</title>
+    <style>
+        body { background: #050505; color: #666; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 50px; }
+        .header { border-bottom: 1px solid #1a1a1a; margin-bottom: 50px; padding-bottom: 20px; display: flex; justify-content: space-between; align-items: baseline; }
+        h1 { color: #eee; font-weight: 300; letter-spacing: 3px; text-transform: uppercase; font-size: 1.2em; margin: 0; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; }
+        .item { background: #0c0c0c; border: 1px solid #111; padding: 12px; position: relative; transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
         .item:hover { border-color: #333; transform: translateY(-3px); }
         .item.selected { border-color: #ffcc00; background: #0f0f00; }
-        
-        /* Изображение */
-        img { 
-            width: 100%; 
-            height: auto; 
-            display: block; 
-            filter: brightness(75%); 
-            transition: 0.4s; 
-            cursor: pointer; 
-        }
+        img { width: 100%; height: auto; display: block; filter: brightness(75%); transition: 0.4s; cursor: pointer; }
         .item:hover img { filter: grayscale(0%) brightness(100%); }
-        
-        /* Таймкод */
-        .tc { 
-            margin-top: 15px; 
-            font-family: 'Courier New', monospace; 
-            color: #ffcc00; 
-            cursor: pointer; 
-            font-size: 1.1em; 
-            text-align: center; 
-            letter-spacing: 1px; 
-        }
-        
-        /* Кнопка звезды */
-        .fav-btn { 
-            position: absolute; 
-            top: 15px; 
-            right: 15px; 
-            background: rgba(0,0,0,0.85); 
-            color: #333; 
-            border: 1px solid #222; 
-            width: 35px; 
-            height: 35px; 
-            cursor: pointer; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            z-index: 10; 
-            font-size: 20px; 
-            transition: 0.3s; 
-        }
+        .tc { margin-top: 15px; font-family: 'Courier New', monospace; color: #ffcc00; cursor: pointer; font-size: 1.1em; text-align: center; letter-spacing: 1px; }
+        .fav-btn { position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.85); color: #333; border: 1px solid #222; width: 35px; height: 35px; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; font-size: 20px; transition: 0.3s; }
         .item.selected .fav-btn { color: #ffcc00; border-color: #ffcc00; }
+        #selection-panel { position: fixed; bottom: 30px; right: 30px; width: 300px; background: #0a0a0a; border: 1px solid #ffcc00; padding: 20px; box-shadow: 0 15px 50px rgba(0,0,0,0.9); display: none; z-index: 100; }
+        button#copy-btn { background: #ffcc00; color: #000; border: none; padding: 12px; width: 100%; cursor: pointer; font-weight: bold; margin-top: 15px; text-transform: uppercase; font-size: 0.75em; letter-spacing: 1px; }
+        #fav-codes { font-family: monospace; font-size: 0.8em; color: #ddd; max-height: 120px; overflow-y: auto; margin-top: 12px; border-top: 1px solid #222; padding-top: 12px; line-height: 1.6; }
         
-        /* Панель избранного */
-        #selection-panel { 
-            position: fixed; 
-            bottom: 30px; 
-            right: 30px; 
-            width: 300px; 
-            background: #0a0a0a; 
-            border: 1px solid #ffcc00; 
-            padding: 20px; 
-            box-shadow: 0 15px 50px rgba(0,0,0,0.9); 
-            display: none; 
-            z-index: 100; 
-        }
-        button#copy-btn { 
-            background: #ffcc00; 
-            color: #000; 
-            border: none; 
-            padding: 12px; 
-            width: 100%; 
-            cursor: pointer; 
-            font-weight: bold; 
-            margin-top: 15px; 
-            text-transform: uppercase; 
-            font-size: 0.75em; 
-            letter-spacing: 1px; 
-        }
-        #fav-codes { 
-            font-family: monospace; 
-            font-size: 0.8em; 
-            color: #ddd; 
-            max-height: 120px; 
-            overflow-y: auto; 
-            margin-top: 12px; 
-            border-top: 1px solid #222; 
-            padding-top: 12px; 
-            line-height: 1.6; 
-        }
-
-        /* --- LIGHTBOX (МОДАЛЬНОЕ ОКНО) --- */
+        /* Lightbox Styles */
         #lightbox {
             display: none;
             position: fixed;
@@ -164,15 +48,7 @@
             color: #666; font-size: 0.8em; margin-top: 15px; letter-spacing: 2px; text-transform: uppercase;
         }
 
-        /* Футер */
-        footer {
-            margin-top: 80px; 
-            padding: 40px 0; 
-            border-top: 1px solid #1a1a1a; 
-            text-align: center;
-            width: 100%; /* Гарантируем ширину */
-            display: block; /* Убеждаемся что футер - это блок */
-        }
+        footer { margin-top: 80px; padding: 40px 0; border-top: 1px solid #1a1a1a; text-align: center; }
     </style>
 </head>
 <body>
@@ -184,8 +60,7 @@
 
 <div class="header">
     <h1>Panic in Needle Park <span style="color: #222;">//</span> Visual Archive</h1>
-    <div style="font-size: 0.7em; letter-spacing: 2px; text-transform: uppercase;">
-    DBL CLICK OR TAP TO EXPAND | STAR TO COLLECT
+    <div style="font-size: 0.7em; letter-spacing: 2px; text-transform: uppercase;">DBL CLICK OR TAP TO EXPAND | STAR TO COLLECT</div>
 </div>
 
 <div class="grid" id="main-grid"></div>
@@ -215,7 +90,6 @@
     const favorites = new Set();
     const interval = 20;
 
-    // YOUR FULL ID LIST
     const fileIds = [
     "1cqI-ULzEtR4UqJKE0f5qB7L3-mNOy3Kf", // frame_00001.jpg
     "1g7XICg_q4K6O7MiXFOawSITStCQmkDkc", // frame_00002.jpg
@@ -551,7 +425,6 @@
     function render() {
         const grid = document.getElementById('main-grid');
         grid.innerHTML = '';
-        
         fileIds.forEach((id, index) => {
             const totalSec = index * interval;
             const h = Math.floor(totalSec / 3600).toString().padStart(2, '0');
@@ -562,8 +435,6 @@
             const div = document.createElement('div');
             div.className = 'item';
             div.id = 'item-' + index;
-            
-            // Corrected Thumbnail URL
             const src = `https://drive.google.com/thumbnail?id=${id}&sz=w800`;
             
             div.innerHTML = `
@@ -577,13 +448,8 @@
 
     function toggleFav(tc, index) {
         const el = document.getElementById('item-' + index);
-        if (favorites.has(tc)) {
-            favorites.delete(tc);
-            el.classList.remove('selected');
-        } else {
-            favorites.add(tc);
-            el.classList.add('selected');
-        }
+        if (favorites.has(tc)) { favorites.delete(tc); el.classList.remove('selected'); }
+        else { favorites.add(tc); el.classList.add('selected'); }
         updatePanel();
     }
 
@@ -593,28 +459,24 @@
         if (favorites.size > 0) {
             panel.style.display = 'block';
             display.innerText = Array.from(favorites).sort().join(', ');
-        } else {
-            panel.style.display = 'none';
-        }
+        } else { panel.style.display = 'none'; }
     }
 
-    // LIGHTBOX OPEN FUNCTION
+    // LIGHTBOX FUNCTION (CORRECTED & SAFE)
     function openLightbox(id) {
         const lb = document.getElementById('lightbox');
         const lbImg = document.getElementById('lightbox-img');
-        // High quality link for full view
+        lbImg.src = ''; 
         lbImg.src = `https://drive.google.com/thumbnail?id=${id}&sz=w3000`;
         lb.style.display = 'flex';
     }
 
-    function copyToClipboard(text) {
-        navigator.clipboard.writeText(text);
-    }
+    function copyToClipboard(text) { navigator.clipboard.writeText(text); }
 
     function copyFullList() {
         const text = Array.from(favorites).sort().join(', ');
         navigator.clipboard.writeText(text);
-        alert('Montage list copied to clipboard');
+        alert('Montage list copied');
     }
 
     render();
@@ -622,7 +484,3 @@
 
 </body>
 </html>
-
-
-
-
